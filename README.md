@@ -3,4 +3,7 @@ na razie w:
 - python 
 - c#
 
-moze bedzie w c++ a jak mi sie bedzie nudzilo to i w php
+w przyszlosci w:
+- php
+
+jak mi sie bedzie mega nudzilo to w c++ i asm
