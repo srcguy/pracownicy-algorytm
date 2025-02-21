@@ -73,7 +73,9 @@ namespace algorytm
         }
 
         static void Alg(List<Pracownik> pracownicy, List<Zmiana> zmiany, int ilosc_zmian)
-        {
+        {   
+            int O = 0;
+
             foreach (Pracownik pracownik in pracownicy)
             {
                 foreach (Zmiana zmiana in zmiany)
@@ -81,15 +83,20 @@ namespace algorytm
                     if (pracownik.Godziny_tydzien > 0)
                     {
                         int n = 0;
+                        O += 1;
                         while (true)
                         {
                             int dzielnik = pracownik.Zmiana + ilosc_zmian * n;
+                            O += 1;
                             if (zmiana.Id == dzielnik)
                             {
                                 zmiana.Pracownicy.Add(new Pracownik(pracownik.Imie, pracownik.Nazwisko, pracownik.Godziny_tydzien, pracownik.Godziny_zmiana, pracownik.Zmiana));
+                                O += 1;
                                 pracownik.Godziny_tydzien -= pracownik.Godziny_zmiana;
+                                O += 1;
                             }
                             n += 1;
+                            O += 1;
                             if (dzielnik > zmiana.Id)
                             {
                                 break;
@@ -98,6 +105,8 @@ namespace algorytm
                     }
                 }
             }
+
+            Console.WriteLine(O);
             Result(zmiany);
         }
 
